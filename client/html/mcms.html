@@ -1,0 +1,58 @@
+<head>
+  <title>Meteor CMS</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    {{>header}}
+    <div id="page_container">
+      {{{render_or_404 current_page}}}
+    </div>
+    {{>footer}}
+  </div>
+</body>
+
+<template name="header">
+  {{>prepend}}
+  <header class="main">
+    <div id="logo"><a href="/">MeteorCMS</a></div>
+    {{#if show_custom_menu}}
+      {{>custom_menu}}
+    {{else}}
+      {{>menu}}
+    {{/if}}
+  </header>
+  {{>append}}
+</template>
+
+<template name="menu">
+  <nav>
+    <ul class="inline">
+      <li><a href="/about">about</a></li>
+      <li><a href="/faq">faq</a></li>
+      <li><a href="/contact">contact</a></li>
+    </ul>
+  </nav>
+</template>
+
+<template name="footer">
+  {{#if prepend}}{{>footer_prepend}}{{/if}}
+  <footer class="main">
+    &copy; 2011-2012 meteorcms.com
+  </footer>
+  {{#if append}}{{>footer_append}}{{/if}}
+</template>
+
+<template name="append">
+  {{#each append}}
+    {{{content}}}
+  {{/each}}
+</template>
+
+
+<template name="prepend">
+  {{#each prepend}}
+    {{{content}}}
+  {{/each}}
+</template>
+

@@ -1,0 +1,191 @@
+<template name="styling">
+  <style type="text/css">
+    .styling_wrapper {padding:5px;border:1px solid;display:inline-block;}
+    .spacer{margin: 20px 0;}
+    .info{margin: 20px 0 5px;font-style: italic;}
+    form label {display: block; margin-top:10px;font-style: italic;}
+    form label.inline{display:inline;}
+  </style>
+  
+  {{>generic_elements}}
+  {{>page_layout}}
+  {{>lists}}
+  {{>tables}}
+  {{>forms}}
+</template>
+
+<template name="main_elements">
+  <header class="main">this header has the class main</header>
+  <div class="main content">this div has the classes main and content</div>
+  <footer class="main">this footer has the class main</footer>
+</template>
+
+<template name="generic_elements">
+  <div class="info">generic elements:</div>
+  
+  <div class="styling_wrapper">
+    <div>this is a div without class or id</div>
+
+    <div class="spacer">
+      <p>this are p elements in a div</p>
+      <p>this are p elements in a div</p>
+    </div>
+
+    <div class="spacer">
+      <span>this are spans in a div</span>
+      <span>this are spans in a div</span>
+    </div>  
+    
+    <div class="spacer">
+      <a href="#">this is a link (a) in a div</a>
+    </div>  
+    
+    <div class="spacer">
+      <h1>a h1 element</h1>
+      <h2>a h2 element</h2>
+      <h3>a h3 element</h3>
+      <h4>a h4 element</h4>
+      <h5>a h5 element</h5>
+      <h6>a h6 element</h6>
+    </div>
+  </div>
+
+  
+</template>
+
+<template name="page_layout">
+  <div class="info">html5 elements:</div>
+  <div class="styling_wrapper">
+    
+    <header>a html5 header element</header>
+
+    <footer>a html5 footer element</footer>
+    
+  </div>
+</template>
+
+
+<template name="lists">
+  <div class="info">an ul with li elements in them:</div>
+  
+  <div class="styling_wrapper">
+    <ul>
+      <li>this ul has no classes</li>
+      <li>this ul has no classes</li>
+      <li>this ul has no classes</li>
+    </ul>
+    
+    <p class="spacer"></p>
+    
+    <ul class="inline">
+      <li>this ul has the class inline</li>
+      <li>this ul has the class inline</li>
+      <li>this ul has the class inline</li>
+    </ul>
+  </div>
+</template>
+
+
+<template name="tables">
+
+  <div class="info">a table with head and body elements in it:</div>
+  
+  <div class="styling_wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>table head element (th)</th>
+          <th>table head element (th)</th>
+          <th>table head element (th)</th>
+          <th>table head element (th)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>table body element (td)</td>
+          <td>table body element (td)</td>
+          <td>table body element (td)</td>
+          <td>table body element (td)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="forms">
+  <div class="info">a form with all html input elements in it</div>
+  <form action="#" method="post">
+    <fieldset>
+      <legend>this is the legend element</legend>
+      <label for="text">input with type=text</label>
+      <input type="text" name="text" value="input with type text" />
+        
+      <label for="textarea">textarea:</label>
+      <textarea cols="20" rows="10">a textarea element with 20 cols and 10 rows</textarea>  
+        
+      <label for="color">input with type=color</label>
+      <input type="color" name="color" />
+      <label for="date">input with type=date</label>
+      <input type="date" name="date" />
+      <label for="datetime">input with type=datetime</label>
+      <input type="datetime" name="datetime" />
+      <label for="datetime-local">input with type=datetime-local</label>
+      <input type="datetime-local" name="datetime-local" />
+      <label for="email">input with type=email</label>
+      <input type="email" name="email" />
+      <label for="file">input with type=file</label>
+      <input type="file" name="file" />
+      <label for="hidden">input with type=hidden</label>
+      <input type="hidden" name="hidden" value="hidden" />
+      <label for="month">input with type=month</label>
+      <input type="month" name="month" />
+      <label for="number">input with type=number</label>
+      <input type="number" name="number" />
+      <label for="password">input with type=password</label>
+      <input type="password" name="password" value="********" />
+
+      
+      <label for="reset">input with type=reset</label>
+      <input type="reset" name="reset" value="reset button" />
+      
+      <label for="search">input with type=search</label>
+      <input type="search" name="search" value="search input element" />
+      
+      <label for="tel">input with type=tel</label>
+      <input type="tel" name="tel" value="555-1234" />
+            
+      
+      <label for="url">input with type=url</label>
+      <input type="url" name="url" value="http://meteorcms.com" />
+      
+      <label for="select">input with type=image - works as a submit button</label>
+      <select name="select" id="select">
+        <option value="option1">option1</option>
+        <option value="option2">option2</option>
+        <option value="option3">option3</option>
+        <option value="option4">option4</option>
+      </select>
+      
+      <label for="radio">some radio buttons:</label>
+      <input type="radio" name="radio" /><label class="inline">radio btn 1</label>
+      <input type="radio" name="radio" /><label class="inline">radio btn 2</label>
+      <input type="radio" name="radio" /><label class="inline">radio btn 3</label>
+      <input type="radio" name="radio" /><label class="inline">radio btn 4</label>
+      
+      <label for="checkbox">some checkboxes:</label>
+      <input type="checkbox" name="checkbox" /><label class="inline">checkbox 1</label>
+      <input type="checkbox" name="checkbox" /><label class="inline">checkbox 2</label>
+      <input type="checkbox" name="checkbox" /><label class="inline">checkbox 3</label>
+      <input type="checkbox" name="checkbox" /><label class="inline">checkbox 4</label>
+      
+      
+      <label for="range">input with type=range</label>    
+      <input type="range" name="range"/>   
+      
+      <label for="image">input with type=image - works as a submit button</label>
+      <input type="image" name="image" src="/theme/submit_btn.png" />
+      
+      <input type="submit" value="submit button" />
+    </fieldset>
+  </form>
+</template>

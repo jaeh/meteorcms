@@ -1,0 +1,54 @@
+<template name="page_list_table">
+  {{#if list.title}}<header class="list-title editable" data-field="Pages.page_lists.title" data-slug="{{list.slug}}">{{list.title}}</header>{{/if}}
+  {{#if list.legend}}<div class="list-legend legend editable">{{list.legend}}</div>{{/if}}
+  <table class="no-border margin vertical-align-top">
+    <tbody>
+      {{#each list.items}}
+        <tr>
+          {{#each tbl_items}}
+            <td class="{{type}}">
+              {{#if href}}
+                <a href="{{href}}">{{{text}}}</a>
+              {{else}}
+                {{{text}}}
+              {{/if}}
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="page_list_list">
+  {{#if list.title}}<header class="list-title">{{list.title}}</header>{{/if}}
+  {{#if list.legend}}<div class="list-legend legend">{{list.legend}}</div>{{/if}}
+  <ul class="list-style-none">
+    {{#each list.items}}
+      <li>
+        {{#if href}}
+          <a href="{{href}}">{{{text}}}</a>
+        {{else}}
+         {{{text}}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</template>
+
+
+
+<template name="page_list_form">
+  {{#if list.title}}<header class="form-title">{{list.title}}</header>{{/if}}
+  <form{{#if form.action}} action="{{form.action}}"{{/if}}{{#if form.method}} method="post"{{/if}}{{#if form.css_id}} id="{{form.css_id}}"{{/if}}>
+    <fieldset>
+      {{#if form.legend}}<legend>{{form.legend}}</legend>{{/if}}
+      {{#each form.items}}
+        <p>
+          {{#if label}}<label{{#if css_id}} for="{{css_id}}"{{/if}}>{{label}}</label>{{/if}}
+          <input{{#if type}} type="{{type}}"{{/if}}{{#if css_id}} name="{{form.css_id}}-{{css_id}}"{{/if}}{{#if value}} value="{{value}}"{{/if}}{{#if css_id}} id="{{#if form.css_id}}{{form.css_id}}-{{/if}}{{css_id}}"{{/if}} />
+        </p>
+      {{/each}}
+    </fieldset>
+  </form>
+</template>

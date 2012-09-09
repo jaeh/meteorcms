@@ -1,0 +1,43 @@
+<template name="contact2">
+  <header class="page">{{{current_page_content "title"}}}</header>
+  <div class="body page">
+    {{#if current_page_content "image"}}
+      <img src="{{current_page_content "image"}}" />
+    {{/if}}
+      
+    {{#if current_page_content "body"}}
+      <div class="content page">{{{current_page_content "body"}}}</div>
+    {{/if}}
+  </div>
+  {{#if current_page_content "footer"}}
+    <footer class="page">{{{current_page_content "footer"}}}</footer>
+  {{/if}}
+  {{>contact_form}}
+</template>
+
+
+
+<template name="contact_form">
+  <form action="#" method="post" id="contact-form">
+    <div class="controls">
+      <label for="mail-from">your email:</label>
+      <input type="email" name="mail-from" id="mail-from" />
+    </div>
+    <div class="controls">
+      <label for="mail-url">the url of your homepage: <span class="greyed">(optional)</span></label>
+      <input type="text" name="mail-url" id="mail-url" />
+    </div>
+    <div class="controls">
+      <label for="mail-subject">subject:</label>
+      <input type="text" name="mail-subject" id="mail-subject" />
+    </div>
+    
+    <div class="controls">
+      <label for="mail-content">content:</label>
+      <textarea name="mail-content" id="mail-content"></textarea>
+    </div>
+    <div class="controls">
+      <input type="submit" value="Send mail" />
+    </div>
+  </form>
+</template>
