@@ -6,11 +6,11 @@ var pages_have_loaded = false;
 
 function pages_loaded() {
   pages_have_loaded = true;
-  
+/*
   var page = MCMS.collections.Pages.findOne({slug:MCMS.Router.current_page()});
   if(!Template[MCMS.Router.current_page()] && !page) {
     MCMS.Router.navigate('404', {trigger: true});
-  }
+  }*/
 }
 
 var MCMSRouter = FilteredRouter.extend({
@@ -34,6 +34,12 @@ var MCMSRouter = FilteredRouter.extend({
     '': 'home'
   },
   home: function() { 
+    console.log('connected =');
+    var st = Meteor.status();
+    console.log(Meteor.status().connected);
+    
+    console.log(st);
+    
     this.goto('home');
   },
 
@@ -44,7 +50,10 @@ var MCMSRouter = FilteredRouter.extend({
     this.goto(controller+'/'+action); 
     
   },
-  subaction: function(controller,action,subaction) { this.goto(controller+'/'+action+'/'+subaction); }
+  subaction: function(controller,action,subaction) { 
+    
+    this.goto(controller+'/'+action+'/'+subaction); 
+  }
 })
 
 MCMS.Router = new MCMSRouter();

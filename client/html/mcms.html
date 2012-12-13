@@ -3,6 +3,11 @@
 </head>
 
 <body>
+  {{>wrapper}}
+</body>
+
+<template name="wrapper">
+  {{#each prepend}}{{{content}}}{{/each}}
   <div id="wrapper">
     {{>header}}
     <div id="page_container">
@@ -10,49 +15,50 @@
     </div>
     {{>footer}}
   </div>
-</body>
+  {{#each append}}{{{content}}}{{/each}}
+</template>
 
 <template name="header">
-  {{>prepend}}
   <header class="main">
+    
+    {{#each prepend}}{{{content}}}{{/each}}
+    
     <div id="logo"><a href="/">MeteorCMS</a></div>
+    
     {{#if show_custom_menu}}
       {{>custom_menu}}
     {{else}}
       {{>menu}}
     {{/if}}
+    
+    {{#each append}}{{{content}}}{{/each}}
+  
   </header>
-  {{>append}}
 </template>
 
 <template name="menu">
   <nav>
+    {{#each prepend}}{{{content}}}{{/each}}
+  
     <ul class="inline">
       <li><a href="/about">about</a></li>
       <li><a href="/faq">faq</a></li>
       <li><a href="/contact">contact</a></li>
     </ul>
+    
+    {{#each append}}{{{content}}}{{/each}}
+        
   </nav>
 </template>
 
 <template name="footer">
-  {{#if prepend}}{{>footer_prepend}}{{/if}}
+  
   <footer class="main">
-    &copy; 2011-2012 meteorcms.com
+    
+    {{#each prepend}}{{{content}}}{{/each}}
+  
+    {{#each extend}}{{{content}}}{{/each}}
+
+    {{#each append}}{{{content}}}{{/each}}
   </footer>
-  {{#if append}}{{>footer_append}}{{/if}}
 </template>
-
-<template name="append">
-  {{#each append}}
-    {{{content}}}
-  {{/each}}
-</template>
-
-
-<template name="prepend">
-  {{#each prepend}}
-    {{{content}}}
-  {{/each}}
-</template>
-

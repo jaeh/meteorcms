@@ -1,15 +1,24 @@
 "use strict";
-if(Handlebars) {
-  
+
+
+if(Handlebars) {  
   Handlebars.registerHelper('render_or_404',function() {
     var pathname = MCMS.Router.current_page();
+    
+    var page = MCMS.getPageContent(pathname);
+    
+    console.log('page with pathname =='+pathname);
+    console.log(page);
     
     if(Template[pathname]) {
       return Template[pathname]();
     }
-    if(Template.static_page) {
-      return Template.static_page();
+    
+    if(Template.static_page && page) {
+      return Template.static_page(page);
     }
+    
+    //MCMS.Router.navigate('404', {trigger: true});
   });
       
   Handlebars.registerHelper('current_page_content', function(field) {

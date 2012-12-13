@@ -1,22 +1,25 @@
 <template name="static_page">
-  {{#if prepend}}{{>append_static_page}}{{/if}}
-  <header class="page">{{{current_page_content "title"}}}</header>
+  {{#each prepend}}{{{content}}}{{/each}}
+  
+  <header class="page">{{{title}}}</header>
+  
   <div class="body page">
-    {{#if current_page_content "image"}}
-      <img src="{{current_page_content "image"}}" />
+    {{#if image}}
+      <img src="{{image}}" />
     {{/if}}
       
-    {{#if current_page_content "body"}}
-      <div class="content page">{{{current_page_content "body"}}}</div>
-      {{#each current_page_content "page_lists"}}
+    {{#if body}}
+      <div class="content page">{{{body}}}</div>
+      {{#each page_lists}}
         <div class="page-list clearboth">
           {{#page_list}}{{/page_list}}
         </div>
       {{/each}}
     {{/if}}
   </div>
-  {{#if current_page_content "footer"}}
-    <footer class="page">{{{current_page_content "footer"}}}</footer>
+  {{#if footer}}
+    <footer class="page">{{{footer}}}</footer>
   {{/if}}
-  {{#if append}}{{>append_static_page}}{{/if}}
+  
+  {{#each prepend}}{{{content}}}{{/each}}
 </template>
