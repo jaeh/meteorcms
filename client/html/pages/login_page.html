@@ -1,0 +1,27 @@
+<template name="login">
+  {{#each prepend}}{{{content}}}{{/each}}
+  
+  <header class="page">{{{title}}}</header>
+  
+  <div class="body page">
+    {{#if image}}
+      <img src="{{image}}" />
+    {{/if}}
+      
+    {{#if body}}
+      <div class="content page">{{{body}}}</div>
+    {{/if}}
+    {{#each current_page_content "page_lists"}}
+      <div class="page-list clearboth">
+        {{#page_list}}{{/page_list}}
+      </div>
+    {{/each}}
+    {{> loginButtons}}
+  </div>
+
+  {{#if footer}}
+    <footer class="page">{{{footer}}}</footer>
+  {{/if}}
+  
+  {{#each prepend}}{{{content}}}{{/each}}
+</template>
